@@ -1,0 +1,26 @@
+const db = new pg.Client({
+  user: "postgres",
+  host: "localhost",
+  database: "world",
+  password: "12345678",
+  port: 5432,
+});
+
+
+
+CREATE TABLE bills (
+    id SERIAL PRIMARY KEY,
+    bill_no VARCHAR(50) NOT NULL,
+    date DATE NOT NULL,
+    receiver VARCHAR(100) NOT NULL
+);
+
+CREATE TABLE bill_items (
+    id SERIAL PRIMARY KEY,
+    bill_id INTEGER REFERENCES bills(id),
+    sr_no INTEGER NOT NULL,
+    particulars VARCHAR(255) NOT NULL,
+    qty INTEGER NOT NULL,
+    rate NUMERIC(10, 2) NOT NULL,
+    amount NUMERIC(10, 2) NOT NULL
+);

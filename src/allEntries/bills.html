@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bill List</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            padding: 20px;
+        }
+        .bill-list {
+            max-width: 800px;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="bill-list">
+        <h2 class="text-center">Bill List</h2>
+        <br>
+        <div class="form-group">
+            <input type="text" class="form-control" id="searchInput" placeholder="Search...">
+        </div>
+        <button class="btn btn-danger mb-3" onclick="deleteAllBills()">Delete All</button> <!-- Add this line -->
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th scope="col">Bill No.</th>
+                    <th scope="col">Receiver's Name</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Total Amount</th>
+                    <th scope="col">Actions</th>
+                </tr>
+            </thead>
+            <tbody id="billList">
+                <!-- Bill details will be inserted here dynamically -->
+            </tbody>
+        </table>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="bills.js"></script>
+    <script>
+        // Function to filter bill list based on search input
+        function filterBillList() {
+            const searchInput = document.getElementById('searchInput').value.toUpperCase();
+            const rows = document.getElementById('billList').getElementsByTagName('tr');
+            
+            for (let i = 0; i < rows.length; i++) {
+                const billNo = rows[i].getElementsByTagName('td')[0].textContent.toUpperCase();
+                const receiver = rows[i].getElementsByTagName('td')[1].textContent.toUpperCase();
+                const date = rows[i].getElementsByTagName('td')[2].textContent.toUpperCase();
+
+                if (billNo.includes(searchInput) || receiver.includes(searchInput) || date.includes(searchInput)) {
+                    rows[i].style.display = '';
+                } else {
+                    rows[i].style.display = 'none';
+                }
+            }
+        }
+
+        // Event listener for search input
+        document.getElementById('searchInput').addEventListener('keyup', filterBillList);
+    </script>
+</body>
+</html>
