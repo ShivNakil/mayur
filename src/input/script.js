@@ -87,3 +87,30 @@ document.getElementById('billForm').addEventListener('submit', function(event) {
         alert(error.message);
     });
 });
+
+async function fetchAutocomplete(endpoint, listId) {
+    try {
+        console.log("autofetch called")
+        const response = await fetch(`http://localhost:3000${endpoint}`);
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        const data = await response.json();
+        console.log(data)
+        const dataList = document.getElementById(listId);
+        dataList.innerHTML = '';
+        data.forEach(item => {
+            const option = document.createElement('option');
+            option.value = item;
+            dataList.appendChild(option);
+        });
+    } catch (error) {
+        console.error('Error fetching autocomplete data:', error);
+    }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    fetchAutocomplete('/autocomplete/receiver', 'receiverNames');
+    fetchAutocomplete('/autocomplete/particulars', 'particularsList');
+});
+

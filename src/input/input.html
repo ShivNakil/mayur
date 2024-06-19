@@ -1,76 +1,160 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bill Form</title>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- mobile metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <!-- site metas -->
+    <title>Alien</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- bootstrap css -->
+    <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
+    <!-- style css -->
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    
+    <!-- Responsive-->
+    <link rel="stylesheet" href="../css/responsive.css">
+    <!-- fevicon -->
+    <link rel="icon" href="../images/fevicon.png" type="../image/gif" />
+    <!-- font css -->
+    <link href="https://fonts.googleapis.com/css?family=Baloo+Chettan+2:400,600,700|Poppins:400,600,700&display=swap" rel="stylesheet">
+    <!-- Scrollbar Custom CSS -->
+    <link rel="stylesheet" href="../css/jquery.mCustomScrollbar.min.css">
+    <!-- Tweaks for older IEs-->
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
     <style>
         body {
-            padding: 20px;
+            /* padding: 20px; */
         }
+
         .bill-form {
             max-width: 800px;
             margin: auto;
         }
     </style>
 </head>
-<body>
-    <div class="bill-form" style="position: relative; width: 60%;">
-        <h2 class="text-center">Mayuresh Engineering Bill</h2>
-        <br>
-        <form id="billForm">
-            <div class="form-group row">
-                <label for="billNo" class="col-sm-2 col-form-label">Bill No.</label>
-                <div class="col-sm-10">
-                    <input type="text" class="form-control" id="billNo" placeholder="Bill No." required>
-                </div>
-            </div>
-            <div class="form-group row">
-                <label for="date" class="col-sm-2 col-form-label">Date</label>
-                <div class="col-sm-10">
-                    <input type="date" class="form-control" id="date" required>
-                </div>
-            </div>
-            <div class="form-group row">
-                <label for="receiver" class="col-sm-2 col-form-label">Receiver's Name</label>
-                <div class="col-sm-10">
-                    <input type="text" class="form-control" id="receiver" placeholder="Receiver's Name" required>
-                </div>
-            </div>
-            <table class="table table-bordered">
-                <thead>
-                    <tr>
-                        <th scope="col">Sr. No.</th>
-                        <th scope="col" style="width: 50%;">Particulars</th>
-                        <th scope="col">Qty</th>
-                        <th scope="col">Rate</th>
-                        <th scope="col">Amount</th>
-                    </tr>
-                </thead>
-                <tbody id="bill-items">
-                    <tr>
-                        <td><input type="text" class="form-control"></td>
-                        <td><input type="text" class="form-control"></td>
-                        <td><input type="number" class="form-control" oninput="calculateAmount(this)"></td>
-                        <td><input type="number" class="form-control" oninput="calculateAmount(this)"></td>
-                        <td><input type="number" class="form-control" readonly></td>
-                    </tr>
-                </tbody>
-            </table>
-            <button style="position: absolute; right: 0;" type="button" class="btn btn-secondary" onclick="addRow()">Add Row</button>
 
-            <div class="form-group row" style="margin-top: 4.5pc;">
-                <label for="totalAmount" class="col-sm-2 col-form-label">Total</label>
-                <div class="col-sm-10">
-                    <input type="number" class="form-control" id="totalAmount" readonly>
+<body>
+    <div class="header_section" style="margin-bottom: 2pc;">
+        <div class="container">
+           <nav class="navbar navbar-expand-lg navbar-light bg-light">
+              <img style="height: 4pc; margin-left: 10pc;" src="../images/logo.png">
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                 <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                       <a class="nav-link" href="../../index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                       <a class="nav-link" href="#">Billing</a>
+                    </li>
+                    <li class="nav-item">
+                       <a class="nav-link" href="../allEntries/bills.html">Database</a>
+                    </li>
+                 </ul>
+                 <form class="form-inline my-2 my-lg-0">
+                 </form>
+              </div>
+           </nav>
+        </div>
+     </div>
+
+    <div class="banner_section" style="padding: 0px;">
+        <div class="bill-form" style="position: relative; width: 60%;">
+            <h2 class="text-center">Mayuresh Engineering Bill</h2>
+            <br>
+            <form id="billForm">
+                <div class="form-group row">
+                    <label for="billNo" class="col-sm-2 col-form-label">Bill No.</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="billNo" placeholder="Bill No." required>
+                    </div>
                 </div>
-            </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
-        </form>
+                <div class="form-group row">
+                    <label for="date" class="col-sm-2 col-form-label">Date</label>
+                    <div class="col-sm-10">
+                        <input type="date" class="form-control" id="date" required>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="receiver" class="col-sm-2 col-form-label">Receiver's Name</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="receiver" list="receiverNames"
+                            placeholder="Receiver's Name" required>
+                        <datalist id="receiverNames"></datalist>
+                    </div>
+                </div>
+    
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th scope="col">Sr. No.</th>
+                            <th scope="col" style="width: 50%;">Particulars</th>
+                            <th scope="col">Qty</th>
+                            <th scope="col">Rate</th>
+                            <th scope="col">Amount</th>
+                        </tr>
+                    </thead>
+                    <tbody id="bill-items">
+                        <tr>
+                            <td><input type="text" class="form-control"></td>
+                            <td><input type="text" class="form-control" id="particulars" list="particularsList"></td>
+                            <datalist id="particularsList"></datalist>
+                            <td><input type="number" class="form-control" oninput="calculateAmount(this)"></td>
+                            <td><input type="number" class="form-control" oninput="calculateAmount(this)"></td>
+                            <td><input type="number" class="form-control" readonly></td>
+                        </tr>
+                    </tbody>
+                </table>
+    
+                <button style="position: absolute; right: 0;" type="button" class="btn btn-secondary" onclick="addRow()">Add
+                    Row</button>
+    
+                <div class="form-group row" style="margin-top: 4.5pc;">
+                    <label for="totalAmount" class="col-sm-2 col-form-label">Total</label>
+                    <div class="col-sm-10">
+                        <input type="number" class="form-control" id="totalAmount" readonly>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
     </div>
 
     <script src="script.js"></script>
-</body>
-</html>
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/popper.min.js"></script>
+    <script src="../js/bootstrap.bundle.min.js"></script>
+    <script src="../js/jquery-3.0.0.min.js"></script>
+    <script src="../js/plugin.js"></script>
+    <!-- sidebar -->
+    <script src="../js/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="../js/custom.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const form = document.getElementById("billForm");
 
+            form.addEventListener("keydown", function (event) {
+                if (event.key === "Enter" && event.target.tagName !== "TEXTAREA" && event.target.tagName !== "BUTTON") {
+                    event.preventDefault();
+                    const formControls = Array.from(form.elements).filter(el => el.tagName === "INPUT" && !el.disabled && !el.readOnly);
+                    const index = formControls.indexOf(event.target);
+                    if (index > -1 && index + 1 < formControls.length) {
+                        formControls[index + 1].focus();
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

@@ -7,11 +7,32 @@
     <title>Bill Details</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        body {
-            padding: 20px;
-        }
 
+    <!-- mobile metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <!-- site metas -->
+    <title>Alien</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- bootstrap css -->
+    <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
+    <!-- style css -->
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    
+    <!-- Responsive-->
+    <link rel="stylesheet" href="../css/responsive.css">
+    <!-- fevicon -->
+    <link rel="icon" href="../images/fevicon.png" type="../image/gif" />
+    <!-- font css -->
+    <link href="https://fonts.googleapis.com/css?family=Baloo+Chettan+2:400,600,700|Poppins:400,600,700&display=swap" rel="stylesheet">
+    <!-- Scrollbar Custom CSS -->
+    <link rel="stylesheet" href="../css/jquery.mCustomScrollbar.min.css">
+    <!-- Tweaks for older IEs-->
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+
+    <style>
         .bill-details {
             max-width: 800px;
             margin: auto;
@@ -24,38 +45,67 @@
 </head>
 
 <body>
-    <div class="bill-details">
-        <h2 class="text-center">Bill Details</h2>
-        <br>
-        <div class="row">
-            <div class="col-md-6">
-                <strong>Bill No.:</strong> <span id="billNo"></span><br>
-                <strong>Date:</strong> <span id="billDate"></span><br>
-                <strong>Receiver:</strong> <span id="receiverName"></span><br>
-            </div>
-            <div class="col-md-6">
-                <strong>Total Amount:</strong> <span id="totalAmount"></span><br>
-            </div>
+
+    <div class="header_section" style="margin-bottom: 2pc;">
+        <div class="container">
+           <nav class="navbar navbar-expand-lg navbar-light bg-light">
+              <img style="height: 4pc; margin-left: 10pc;" src="../images/logo.png">
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                 <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                       <a class="nav-link" href="../../index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                       <a class="nav-link" href="../input/input.html">Billing</a>
+                    </li>
+                    <li class="nav-item">
+                       <a class="nav-link" href="../allEntries/bills.html">Database</a>
+                    </li>
+                 </ul>
+                 <form class="form-inline my-2 my-lg-0">
+                 </form>
+              </div>
+           </nav>
         </div>
-        <br>
-        <h4>Bill Items</h4>
-        <table class="table table-bordered">
-            <thead>
-                <tr>
-                    <th scope="col">Sr. No.</th>
-                    <th scope="col" style="width: 50%;">Particulars</th>
-                    <th scope="col">Qty</th>
-                    <th scope="col">Rate</th>
-                    <th scope="col">Amount</th>
-                </tr>
-            </thead>
-            <tbody id="billItems">
-                <!-- Bill items will be inserted here dynamically -->
-            </tbody>
-        </table>
-        <div class="action-buttons">
-            <button class="btn btn-primary" onclick="editBill()">Edit</button>
-            <button class="btn btn-secondary" onclick="printBill()">Print</button>
+     </div>
+
+    <div class="banner_section" style="padding: 0px;">
+        <div class="bill-details">
+            <h2 class="text-center">Bill Details</h2>
+            <br>
+            <div class="row">
+                <div class="col-md-6">
+                    <strong>Bill No.:</strong> <span id="billNo"></span><br>
+                    <strong>Date:</strong> <span id="billDate"></span><br>
+                    <strong>Receiver:</strong> <span id="receiverName"></span><br>
+                </div>
+                <div class="col-md-6">
+                    <strong>Total Amount:</strong> <span id="totalAmount"></span><br>
+                </div>
+            </div>
+            <br>
+            <h4>Bill Items</h4>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th scope="col">Sr. No.</th>
+                        <th scope="col" style="width: 50%;">Particulars</th>
+                        <th scope="col">Qty</th>
+                        <th scope="col">Rate</th>
+                        <th scope="col">Amount</th>
+                    </tr>
+                </thead>
+                <tbody id="billItems">
+                    <!-- Bill items will be inserted here dynamically -->
+                </tbody>
+            </table>
+            <div class="action-buttons">
+                <button class="btn btn-primary" onclick="editBill()">Edit</button>
+                <button class="btn btn-secondary" onclick="printBill()">Print</button>
+            </div>
         </div>
     </div>
 

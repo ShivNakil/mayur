@@ -5,14 +5,109 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <!-- mobile metas -->
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+      <!-- site metas -->
+      <title>Alien</title>
+      <meta name="keywords" content="">
+      <meta name="description" content="">
+      <meta name="author" content="">
+      <!-- bootstrap css -->
+      <link rel="stylesheet" type="text/css" href="src/css/bootstrap.min.css">
+      <!-- style css -->
+      <link rel="stylesheet" type="text/css" href="src/css/style.css">
+      
+      <!-- Responsive-->
+      <link rel="stylesheet" href="src/css/responsive.css">
+      <!-- fevicon -->
+      <link rel="icon" href="src/images/fevicon.png" type="src/image/gif" />
+      <!-- font css -->
+      <link href="https://fonts.googleapis.com/css?family=Baloo+Chettan+2:400,600,700|Poppins:400,600,700&display=swap" rel="stylesheet">
+      <!-- Scrollbar Custom CSS -->
+      <link rel="stylesheet" href="src/css/jquery.mCustomScrollbar.min.css">
+      <!-- Tweaks for older IEs-->
+      <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+
+      <link rel="stylesheet" href="styles.css">
 </head>
 
-<body>
-    <button onclick="redirectToInputPage()">Go to Input Page</button>
-    <button onclick="redirectToHomePage()">Go to Home Page</button> 
-    <button onclick="redirectToBillsPage()">Go to Bills Page</button> 
+<body style="min-height: 100vh;">
+
+    <div class="header_section" style="background-color: #008cff;">
+        <div class="container">
+           <nav class="navbar navbar-expand-lg navbar-light bg-light">
+              <img style="height: 4pc; margin-left: 10pc;" src="src/images/logo.png">
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                 <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                       <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                       <a class="nav-link" href="src/input/input.html">Billing</a>
+                    </li>
+                    <li class="nav-item">
+                       <a class="nav-link" href="src/allEntries/bills.html">Database</a>
+                    </li>
+                 </ul>
+                 <form class="form-inline my-2 my-lg-0">
+                 </form>
+              </div>
+           </nav>
+        </div>
+     </div>
+
+
+    <div class="banner_section ">
+        <div class="container">
+           <div style="margin-top: -5pc;">
+              <div class="carousel-inner">
+                 <div class="carousel-item active">
+                    <div class="row">
+                       <div class="col-md-6">
+                          <div class="banner_img"><img src="src/images/banner-img.png"></div>
+                       </div>
+                       <div class="col-md-6">
+                          <div style="margin-top: 5pc;" class="banner_taital_main">
+                             <h1 class="banner_taital" style="text-align: center;">Mayuresh Engineering</h1>
+                             <h1 class="banner_taital" style="text-align: center;">Workshop</h1>
+                             <p style="color: black; text-align: center; font-size: 1.3pc;">House Number 21/1725, Jawahar nagar, Ichalkaranji - 416115</p>
+                          </div>
+                       </div>
+                    </div>
+                 </div>
+              </div>
+           </div>
+        </div>
+     </div>
+
+    
+
+
+    <div style="position: absolute; bottom: 0; height: 5pc; width: 100%; background-color: #008cff; display: flex; align-items: center; text-align: center; justify-content: center; gap: 10pc;">
+        <h1 class="fa fa-map-marker" style="color: white;"> https://maps.app.goo.gl/2Ur64tMTzujpzo549</h1>
+        <h1 class="fa fa-phone" style="color: white;"> +91 9822801929</h1>
+        <h1 class="fa fa-envelope" style="color: white;"> mayureshkamble22@gmail.com</h1>
+        
+    </div>
 
     <script src="index.js"></script>
+
+    <script src="src/js/jquery.min.js"></script>
+    <script src="src/js/popper.min.js"></script>
+    <script src="src/js/bootstrap.bundle.min.js"></script>
+    <script src="src/js/jquery-3.0.0.min.js"></script>
+    <script src="src/js/plugin.js"></script>
+    <!-- sidebar -->
+    <script src="src/js/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="src/js/custom.js"></script>
+
 </body>
 
 </html>

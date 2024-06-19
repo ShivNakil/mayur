@@ -168,36 +168,30 @@ app.put('/bills/:id', async (req, res) => {
     }
 });
 
-// Endpoint to fetch receiver name suggestions
-app.get('/autocomplete/receivers', async (req, res) => {
-    const searchTerm = req.query.q;
+app.get('/autocomplete/receiver', async (req, res) => {
     try {
-        const result = await pool.query(
-            'SELECT DISTINCT receiver FROM bills WHERE receiver ILIKE $1 LIMIT 10',
-            [`%${searchTerm}%`]
-        );
-        res.status(200).json(result.rows);
+      const query = 'SELECT DISTINCT receiver FROM bills';
+      const { rows } = await pool.query(query);
+      const receivers = rows.map(row => row.receiver);
+      res.json(receivers);
     } catch (error) {
-        console.error('Error fetching receiver suggestions:', error);
-        res.status(500).json({ error: 'Failed to fetch receiver suggestions' });
+      console.error('Error fetching receivers:', error);
+      res.status(500).json({ message: 'Internal server error' });
     }
-});
-
-// Endpoint to fetch particulars suggestions
-app.get('/autocomplete/particulars', async (req, res) => {
-    const searchTerm = req.query.q;
+  });
+  
+  // Endpoint to fetch autocomplete suggestions for particulars
+  app.get('/autocomplete/particulars', async (req, res) => {
     try {
-        const result = await pool.query(
-            'SELECT DISTINCT particulars FROM bill_items WHERE particulars ILIKE $1 LIMIT 10',
-            [`%${searchTerm}%`]
-        );
-        res.status(200).json(result.rows);
+      const query = 'SELECT DISTINCT particulars FROM bill_items';
+      const { rows } = await pool.query(query);
+      const particulars = rows.map(row => row.particulars);
+      res.json(particulars);
     } catch (error) {
-        console.error('Error fetching particulars suggestions:', error);
-        res.status(500).json({ error: 'Failed to fetch particulars suggestions' });
+      console.error('Error fetching particulars:', error);
+      res.status(500).json({ message: 'Internal server error' });
     }
-});
-
+  });
 
 
 
